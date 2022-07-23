@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        pg_version: [12, 13]
+        pg_version: [13]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -29,4 +29,4 @@ jobs:
             pg_version=${{ matrix.pg_version }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
           push: true
-          tags: fengkx/postgres:${{ matrix.pg_version }}-alpine
+          tags: aaronlee/miniflux-postgres-zhparser:${{ matrix.pg_version }}-alpine
