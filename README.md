@@ -16,3 +16,4 @@
 1. `max_replication_slots` if `USE_REPLICATION` env is set
 
 more in [this file](https://github.com/fengkx/postgres-docker/blob/master/init_extension.sh)
+
