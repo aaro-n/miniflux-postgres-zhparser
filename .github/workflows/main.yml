@@ -1,3 +1,4 @@
+name: 'miniflux-postgres-zhparser'
 on:
   push:
     schedule:
