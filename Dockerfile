@@ -8,7 +8,7 @@ RUN set -ex \
     && wget -q -O - "https://github.com/amutu/zhparser/archive/master.tar.gz" | tar zxf - \
     && wget -q -O - "https://github.com/eradman/pg-safeupdate/archive/master.tar.gz" | tar zxf - \
     && wget -q -O - https://github.com/citusdata/pg_cron/archive/main.tar.gz | tar zxf - \
-    && cd /scws-1.4.17 \
+    && cd /scws-1.2.3 \
     && ./configure \
     && make install \
     && cd /zhparser-master \
@@ -22,7 +22,7 @@ RUN set -ex \
     && make \
     && make install \
     && apk add --no-cache  postgresql-contrib \
-    && rm -rf /zhparser-master /scws-1.4.17  /pg-safeupdate-master /pg_cron-main \
+    && rm -rf /zhparser-master /scws-1.2.3  /pg-safeupdate-master /pg_cron-main \
     && apk del .build-deps
 
 COPY install_extension.sql init_extension.sh /docker-entrypoint-initdb.d/
