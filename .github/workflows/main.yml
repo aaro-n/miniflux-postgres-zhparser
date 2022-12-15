@@ -1,10 +1,14 @@
-name: 'miniflux-postgres-zhparser'
+name: miniflux-postgres-zhparser
+
 on:
   push:
-    schedule:
-      - cron: '0 0 */7 * *'
     branches:
-      - "master"
+      - master
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # Run every day at 5:30 and 17:30:
+    - cron:  '37 17 * * 3'
+  workflow_dispatch:
 
 jobs:
   docker:
