@@ -22,7 +22,7 @@ RUN set -ex \
 #    && make \
 #    && make install \
     && apk add --no-cache  postgresql-contrib \
-    && rm -rf /scws-1.2.3  /pg_cron-main \
+    && rm -rf /scws-1.2.3  /pg-safeupdate-master \
     && apk del .build-deps
 
 COPY install_extension.sql init_extension.sh /docker-entrypoint-initdb.d/
