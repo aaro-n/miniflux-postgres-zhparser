@@ -6,21 +6,21 @@ RUN set -ex \
     && apk add --no-cache --virtual .build-deps gcc libc-dev make pkgconf clang llvm cmake g++ \
     && wget -q -O - https://raw.githubusercontent.com/aaro-n/file/master/scws/scws-1.2.3.tar.bz2 | tar jxf - \
 #1    && wget -q -O - "https://github.com/amutu/zhparser/archive/master.tar.gz" | tar zxf - \
-#2    && wget -q -O - "https://github.com/eradman/pg-safeupdate/archive/master.tar.gz" | tar zxf - \
-    && wget -q -O - https://github.com/citusdata/pg_cron/archive/main.tar.gz | tar zxf - \
+    && wget -q -O - "https://github.com/eradman/pg-safeupdate/archive/master.tar.gz" | tar zxf - \
+##    && wget -q -O - https://github.com/citusdata/pg_cron/archive/main.tar.gz | tar zxf - \
     && cd /scws-1.2.3 \
     && ./configure \
     && make install \
 #    && cd /zhparser-master \
 #    && make \
 #    && make install \
-#    && cd /pg-safeupdate-master \
-#    && make \
-#    && make install \
-    && cd /pg_cron-main \
-    && sed -i "s/Werror/Wno-error=format-security/g" Makefile \
+    && cd /pg-safeupdate-master \
     && make \
     && make install \
+#    && cd /pg_cron-main \
+#    && sed -i "s/Werror/Wno-error=format-security/g" Makefile \
+#    && make \
+#    && make install \
     && apk add --no-cache  postgresql-contrib \
     && rm -rf /scws-1.2.3  /pg_cron-main \
     && apk del .build-deps
